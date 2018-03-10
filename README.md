@@ -1,2 +1,0 @@
-# tryreact
-Created with CodeSandbox
