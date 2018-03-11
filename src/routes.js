@@ -6,6 +6,7 @@ var Redirect = ReactRouter.Redirect;
 
 var HomePage = require('./components/home_page');
 var AuthorPage = require('./components/authors_page');
+var ManageAuthorPage = require('./components/manage_author_page');
 var AboutPage = require('./components/about_page');
 var PageNotFound = require('./components/page_not_found');
 
@@ -18,6 +19,8 @@ var Routes = function(props) {
       <Redirect exact from="/" to="/home" />
       <Route path="/home" component={HomePage} />
       <PrivateRoute path="/authors" component={AuthorPage} />
+      <Route exact path="/author" component={ManageAuthorPage} />
+      <Route path="/author/:id" component={ManageAuthorPage} />
       <Route path="/about" component={AboutPage} />
       <Route component={PageNotFound} />
     </Switch>

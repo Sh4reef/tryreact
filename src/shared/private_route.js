@@ -6,7 +6,6 @@ var Redirect = ReactRouter.Redirect;
 var FakeAuth = require('../api/auth_api');
 
 var PrivateRoute = function ({ component: Component, ...rest }) {
-  
   return (
     <Route {...rest} render={function(props) {
       return FakeAuth.isAuthenticated ? (
