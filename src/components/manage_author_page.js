@@ -1,10 +1,9 @@
 var React = require('react');
 var createReactClass = require('create-react-class');
-var Prompt = require('react-router-dom').Prompt;
-var Redirect = require('react-router-dom').Redirect;
+var AuthorActions = require('../actions/author_actions');
+var AuthorStore = require('../stores/author_store');
 
 var AuthorForm = require('./author_form');
-var AuthorApi = require('../api/author_api');
 
 var ManageAuthorPage = createReactClass({
   getInitialState: function() {
@@ -18,7 +17,7 @@ var ManageAuthorPage = createReactClass({
   componentWillMount: function() {
     var authorId = this.props.match.params.id;
     if (authorId) {
-      this.setState({author: AuthorApi.getAuthorById(authorId)})
+      this.setState({author: AuthorStore.getAuthorById(authorId)})
     }
   },
   setAuthorState: function(event) {
@@ -48,7 +47,11 @@ var ManageAuthorPage = createReactClass({
     if (!this.authorFormIsValid()) {
       return;
     }
-    AuthorApi.saveAuthor(this.state.author);
+    if (this.state.author.id) {
+      AuthorActions.updateAuthor(this.state.author)
+    } else {
+      AuthorActions.createAuthor(this.state.author);
+    }
     this.props.history.push('/authors')
   },
   render: function() {

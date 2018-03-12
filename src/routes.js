@@ -5,7 +5,7 @@ var Switch = ReactRouter.Switch;
 var Redirect = ReactRouter.Redirect;
 
 var HomePage = require('./components/home_page');
-var AuthorPage = require('./components/authors_page');
+var AuthorPage = require('./components/author_page');
 var ManageAuthorPage = require('./components/manage_author_page');
 var AboutPage = require('./components/about_page');
 var PageNotFound = require('./components/page_not_found');

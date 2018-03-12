@@ -3,7 +3,7 @@ var createReactClass = require('create-react-class');
 var PropTypes = require('prop-types');
 var Link = require('react-router-dom').Link;
 
-var AuthorApi = require('../api/author_api');
+var AuthorStore = require('../stores/author_store');
 var AuthorList = require('./author_list');
 
 var AuthorPage = createReactClass({
@@ -17,8 +17,15 @@ var AuthorPage = createReactClass({
   },
   componentWillMount: function() {
     this.setState({
-      authors: AuthorApi.getAllAuthors()
+      authors: AuthorStore.getAllAuthors()
     })
+    AuthorStore.addChangeListener(this._onChange);
+  },
+  componentWillUnmount: function() {
+    AuthorStore.removeChangeListener(this._onChange)
+  },
+  _onChange: function() {
+    this.setState({authors: AuthorStore.getAllAuthors()})
   },
   render: function() {
     return (
