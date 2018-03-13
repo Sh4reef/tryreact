@@ -68,18 +68,11 @@ var ManageCoursePage = createReactClass({
       errors.category = 'Category must be at least 2 characters.'
       formIsValid = false;
     }
-    var length = this.state.course.length.split(':')
     
-    if (length.length !== 2) {
+    var lengthRegex = /^\d{1,2}:\d{1,2}$/;
+    if (!lengthRegex.test(this.state.course.length)) {
       errors.length = 'Length must be in this format hh:mm'
       formIsValid = false;
-    } else {
-      length.forEach(function(n) {
-        if (!Number(n)) {
-          errors.length = 'Length must be in this format hh:mm'
-          formIsValid = false;
-        }
-      })
     }
     this.setState({errors: errors})
     console.log(formIsValid)

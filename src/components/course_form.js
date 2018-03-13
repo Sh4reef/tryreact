@@ -59,7 +59,7 @@ var CourseForm = createReactClass({
           value={this.props.course.length}
           onChange={this.props.onChange}
           required={true}
-          pattern="/^\d+:\d+$/"
+          pattern="(^\d{1,2}:\d{1,2}$)"
           feedback={this.props.errors.length} />
         <button className="btn btn-secondary" onClick={this.props.onSave}>Submit</button>
       </form>
