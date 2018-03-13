@@ -75,7 +75,6 @@ var ManageCoursePage = createReactClass({
       formIsValid = false;
     }
     this.setState({errors: errors})
-    console.log(formIsValid)
     return formIsValid;
   },
   saveCourse: function(event) {
