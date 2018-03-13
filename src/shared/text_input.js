@@ -23,6 +23,7 @@ var TextInput = createReactClass({
             onChange={this.props.onChange}
             minLength={this.props.minLength}
             maxLength={this.props.maxLength}
+            pattern={this.props.pattern}
             value={this.props.value} required={this.props.required}/>
           <div className="invalid-feedback">
             {this.props.feedback}

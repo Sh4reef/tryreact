@@ -29,8 +29,8 @@ var AuthorPage = createReactClass({
   },
   render: function() {
     return (
-      <div className="container">
-        <h1 className="my-4">Authors</h1>
+      <div className="container my-5">
+        <h1 className="mb-4">Authors</h1>
         <Link className="btn btn-secondary mb-4" to="/author">Add Author</Link>
         <AuthorList authors={this.state.authors} />
       </div>

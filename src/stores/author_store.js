@@ -1,7 +1,6 @@
 var Dispatcher = require('../dispatcher');
-var EventEmitter = require('events').EventEmitter;
-var AuthorApi = require('../api/author_api');
 
+var ChangeListener = require('./change_listener');
 var _authors = [];
 
 Dispatcher.register(function(action) {
@@ -32,16 +31,7 @@ Dispatcher.register(function(action) {
   }
 })
 
-var AuthorStore = Object.assign({}, EventEmitter.prototype, {
-  addChangeListener: function(callback) {
-    this.on('change', callback);
-  },
-  removeChangeListener: function(callback) {
-    this.removeListener('change', callback);
-  },
-  emitChange: function() {
-    this.emit('change');
-  },
+var AuthorStore = Object.assign({}, ChangeListener, {
   getAllAuthors: function() {
     return _authors;
   },

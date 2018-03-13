@@ -20,6 +20,9 @@ function Header(props) {
             <NavLink className="nav-link" to="/authors">Authors</NavLink>
           </li>
           <li className="nav-item">
+            <NavLink className="nav-link" to="/courses">Courses</NavLink>
+          </li>
+          <li className="nav-item">
             <NavLink className="nav-link" to="/about">About</NavLink>
           </li>
         </ul>
